@@ -1,91 +1,109 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Nishkarsh</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
-  <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-      color: #fff;
-      text-align: center;
-      animation: fadeIn 1.5s ease-in;
-    }@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-#jwplayerDiv {
-  position: relative;
-  width: 90%;
-  max-width: 800px;
-  margin: 50px auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.poster {
-  margin-top: 120px;
-  width: 30%;
-  max-width: 50px;
-  border-radius: 18px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-.telegram-button, .zoom-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 15px 25px;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(135deg, #0088cc, #005f99);
-  border-radius: 30px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.telegram-button:hover, .zoom-button:hover {
-  background: linear-gradient(135deg, #0099dd, #0077aa);
-  transform: scale(1.05);
-}
-
-  </style>
-</head>
-<body>
-  <div id="jwplayerDiv">
-    <script>
-      jwplayer("jwplayerDiv").setup({
-        file: "https://jcevents.jiocinema.com/bpk-tv/JC_Sports18_1HD/JCHLS/hdntl=exp=1740296821~acl=%2f*~id=7b9c16515a5d47dc46cf1ffc9e97ed05~data=hdntl~hmac=c2aa978088215ba51e6df045f76424f51b0c6bf70c51e681fe75caafc9bce789/index.m3u8",
-        autostart: true,
-        controls: true,
-        width: "100%",
-        aspectratio: "16:9"
-      });
-    </script>
-  </div><button class="zoom-button" onclick="toggleZoom()">🔍 Zoom Video</button>
-
-  <img src="IMG_20250219_142903_945.jpg" alt="Stream Poster" class="poster">
-  <a href="https://t.me/+nJCypsY4VzlkZjdl" class="telegram-button">😍 Join Our Telegram</a>  <script>
-    let zoomed = false;
-    function toggleZoom() {
-      const playerDiv = document.getElementById('jwplayerDiv');
-      if (zoomed) {
-        playerDiv.style.transform = 'scale(1)';
-      } else {
-        playerDiv.style.transform = 'scale(1.5)';
-      }
-      zoomed = !zoomed;
+<!DOCTYPE html><html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <title>Nishkarsh</title>  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>  
+  <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>  <style>  
+    body {  
+      margin: 0;  
+      font-family: 'Poppins', sans-serif;  
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4);  
+      color: #fff;  
+      text-align: center;  
+      animation: fadeIn 1.5s ease-in;  
+    }  
+  
+    @keyframes fadeIn {  
+      from { opacity: 0; }  
+      to { opacity: 1; }  
+    }  
+  
+    #jwplayerDiv {  
+      position: relative;  
+      width: 90%;  
+      max-width: 800px;  
+      margin: 50px auto;  
+      border-radius: 15px;  
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);  
+      background: rgba(255, 255, 255, 0.1);  
+      backdrop-filter: blur(10px);  
+      overflow: hidden;  
+    }  
+  
+    .poster {  
+      margin-top: 120px;  
+      width: 30%;  
+      max-width: 50px;  
+      border-radius: 18px;  
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);  
+    }  
+  
+    .telegram-button {  
+      display: inline-block;  
+      margin-top: 20px;  
+      padding: 15px 25px;  
+      font-size: 18px;  
+      font-weight: bold;  
+      color: white;  
+      background: linear-gradient(135deg, #0088cc, #005f99);  
+      border-radius: 30px;  
+      text-decoration: none;  
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  
+      transition: all 0.3s ease;  
+    }  
+  
+    .telegram-button:hover {  
+      background: linear-gradient(135deg, #0099dd, #0077aa);  
+      transform: scale(1.05);  
+    }  
+  </style></head>  
+<body>  
+  <div id="jwplayerDiv">  
+    <script>  
+      jwplayer("jwplayerDiv").setup({  
+        file: "https://jcevents.jiocinema.com/bpk-tv/JC_Sports18_1HD/JCHLS/hdntl=exp=1740296821~acl=%2f*~id=7b9c16515a5d47dc46cf1ffc9e97ed05~data=hdntl~hmac=c2aa978088215ba51e6df045f76424f51b0c6bf70c51e681fe75caafc9bce789/index.m3u8",  
+        autostart: true,  
+        controls: true,  
+        width: "100%",  
+        aspectratio: "16:9"  
+      });  
+    </script>  <script>
+  let zoomLevel = 1;
+  
+  function zoomIn() {
+    if (zoomLevel < 2) { // Maximum zoom level
+      zoomLevel += 0.2;
+      document.querySelector(".jw-video").style.transform = `scale(${zoomLevel})`;
     }
-  </script></body>
+  }
+
+  function zoomOut() {
+    if (zoomLevel > 1) { // Minimum zoom level
+      zoomLevel -= 0.2;
+      document.querySelector(".jw-video").style.transform = `scale(${zoomLevel})`;
+    }
+  }
+  
+  document.addEventListener("fullscreenchange", () => {
+    if (document.fullscreenElement) {
+      // Add zoom buttons when in fullscreen
+      document.getElementById("zoomControls").style.display = "block";
+    } else {
+      // Hide zoom buttons when exiting fullscreen
+      document.getElementById("zoomControls").style.display = "none";
+      zoomLevel = 1;
+      document.querySelector(".jw-video").style.transform = "scale(1)";
+    }
+  });
+</script>
+
+<div id="zoomControls" style="display:none; position: fixed; bottom: 10%; right: 5%; z-index: 1000;">
+  <button onclick="zoomIn()" style="padding: 10px; font-size: 16px;">🔍+</button>
+  <button onclick="zoomOut()" style="padding: 10px; font-size: 16px;">🔍-</button>
+</div>
+  </div>  <img src="IMG_20250219_142903_945.jpg" alt="Stream Poster" class="poster"><a href="https://t.me/+nJCypsY4VzlkZjdl" class="telegram-button">😍 Join Our Telegram</a>  
+  
+</body>  
 </html>

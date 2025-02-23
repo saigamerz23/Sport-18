@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Nishkarsh</title>
@@ -6,86 +7,163 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
   <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+
   <style>
+    /* Smooth page load animation */
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-      color: #fff;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1);
+      color: #333;
       text-align: center;
-      animation: fadeIn 1.5s ease-in;
-    }@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+      animation: fadeIn 1.5s ease-in-out;
+    }
 
-#jwplayerDiv {
-  position: relative;
-  width: 90%;
-  max-width: 800px;
-  margin: 50px auto;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-.poster {
-  margin-top: 120px;
-  width: 30%;
-  max-width: 50px;
-  border-radius: 18px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
+    /* JWPlayer container */
+    #jwplayerDiv {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 30px auto;
+      z-index: 1;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      background-color: #fff;
+      transform: scale(0.9);
+      animation: scaleUp 1s ease-in-out forwards;
+    }
 
-.telegram-button, .zoom-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 15px 25px;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(135deg, #0088cc, #005f99);
-  border-radius: 30px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
+    /* Scale-up animation */
+    @keyframes scaleUp {
+      to { transform: scale(1); }
+    }
 
-.telegram-button:hover, .zoom-button:hover {
-  background: linear-gradient(135deg, #0099dd, #0077aa);
-  transform: scale(1.05);
-}
+    /* Buttons with hover effects */
+    .btn-container {
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Button ripple effect */
+    .btn:after {
+      content: "";
+      position: absolute;
+      width: 300%;
+      height: 300%;
+      top: 50%;
+      left: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: all 0.6s ease;
+      transform: translate(-50%, -50%) scale(0);
+      border-radius: 50%;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #ff6a5f, #fd8e5e);
+      transform: scale(1.05);
+    }
+
+    .btn:active:after {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+    }
+
+    /* Telegram Strip */
+    .telegram-strip {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+      transform: translateY(100%);
+      animation: slideUp 1s ease-in-out forwards 1.5s;
+    }
+
+    /* Slide up animation */
+    @keyframes slideUp {
+      to { transform: translateY(0); }
+    }
+
+    .telegram-strip a {
+      margin-left: 10px;
+      padding: 10px 20px;
+      background: white;
+      color: #ff7e5f;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .telegram-strip a:hover {
+      background: #f0f0f0;
+    }
 
   </style>
 </head>
 <body>
-  <div id="jwplayerDiv">
-    <script>
-      jwplayer("jwplayerDiv").setup({
-        file: "https://jcevents.jiocinema.com/bpk-tv/JC_Sports18_1HD/JCHLS/hdntl=exp=1740382021~acl=%2f*~id=834bb1c3998e79e7ea2e0346ad9fb05d~data=hdntl~hmac=20facbbe008e1b4e093078c7dcfc2c9d9d8c04eeeed0429c55ea512538bf9a32/index.m3u8",
-        autostart: true,
-        controls: true,
-        width: "100%",
-        aspectratio: "16:9"
-      });
-    </script>
-  </div><button class="zoom-button" onclick="toggleZoom()">🔍 Zoom Video</button>
 
-  <img src="IMG_20250219_142903_945.jpg" alt="Stream Poster" class="poster">
-  <a href="https://t.me/+nJCypsY4VzlkZjdl" class="telegram-button">😍 Join Our Telegram</a>  <script>
-    let zoomed = false;
-    function toggleZoom() {
-      const playerDiv = document.getElementById('jwplayerDiv');
-      if (zoomed) {
-        playerDiv.style.transform = 'scale(1)';
-      } else {
-        playerDiv.style.transform = 'scale(1.5)';
-      }
-      zoomed = !zoomed;
+  <div id="jwplayerDiv"></div>
+
+  <script>
+    // Set up the JWPlayer with a default channel
+    jwplayer("jwplayerDiv").setup({
+      file: "https://jcevents.jiocinema.com/bpk-tv/JC_Sports18_1HD/JCHLS/hdntl=exp=1740319493~acl=%2f*~id=aaf549ec51984c86b32dd7de3e1334c7~data=hdntl~hmac=fce24e2abfc7ecbba03eff4715efb9e7149b87a88675beb02404b86592a63708/index.m3u8",
+      autostart: true,
+      controls: true,
+      width: "100%",
+      aspectratio: "16:9"
+    });
+
+    // Function to change the video when a button is clicked
+    function changeVideo(url) {
+      jwplayer("jwplayerDiv").load({
+        file: url
+      });
+      jwplayer("jwplayerDiv").play();
     }
-  </script></body>
+  </script>
+
+  <!-- Buttons for channel selection -->
+  <div class="btn-container">
+    <button class="btn" onclick="changeVideo('https://jcevents.jiocinema.com/bpk-tv/JC_Sports18_1HD/JCHLS/hdntl=exp=1740377166~acl=%2f*~id=a1486dc5e8d21f98f598e70f48aabbc7~data=hdntl~hmac=3a0aa970e79eaf1852995cc9b07c7545d5cb6f0bd299a1f231786cf6e88ea775/index.m3u8')">SPORT HINDI LAPTOP 💻 USER</button>
+   <!-- <button class="btn" onclick="changeVideo('https://jcevents.jiocinema.com/bpk-tv/JC_Sports18_1HD/JCHLS/hdntl=exp=1739428832~acl=%2f*~id=1acd007748ec1f80292d0a7d5e128f5f~data=hdntl~hmac=697723bf7c0cdc7361bcdc9d218bf7d0d59d2c388cca7a9cacc98f1328668d0b/index.m3u8')">Play Sport 18 Hindi</button>-->
+    <button class="btn" onclick="changeVideo('https://jcevents.jiocinema.com/bpk-tv/JC_Sports18_1HD/JCHLS/hdntl=exp=1740319493~acl=%2f*~id=aaf549ec51984c86b32dd7de3e1334c7~data=hdntl~hmac=fce24e2abfc7ecbba03eff4715efb9e7149b87a88675beb02404b86592a63708/index.m3u8')">Play Sport Hindi for IOS</button>
+  </div>
+
+  <!-- Telegram Join Strip -->
+  <div class="telegram-strip">
+    📢 Join our Telegram for Live Updates!
+    <a href="https://t.me/+bdfr3H7NBwwyZDZl" target="_blank">Join Now</a>
+  </div>
+
+</body>
 </html>

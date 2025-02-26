@@ -525,12 +525,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Play video with sound
     promoVideo.muted = false;
-
-    // Stop video after 10 seconds
-    setTimeout(() => {
-        promoVideo.pause();
-    }, 10000); // Adjust time if needed
-
     // Close popup
     closePopup.onclick = function () {
         popup.style.display = 'none';

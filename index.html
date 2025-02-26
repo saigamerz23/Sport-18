@@ -288,6 +288,55 @@
   <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
 <a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter6.optistats.ovh/private/freecounterstat.php?c=kyp3jnx1qam3tx636zypzy9ttutfdtfs" border="0" title="website counter" alt="website counter"></a>
   <style>
+      /* Popup Styles */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #222;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.2);
+    text-align: center;
+    z-index: 9999;
+    width: 500px; /* Larger size */
+    max-width: 90%;
+}
+
+.popup p {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.popup video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.buttons {
+    margin-top: 15px;
+}
+
+.buttons button {
+    padding: 12px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.join {
+    background: #28a745;
+    color: white;
+}
+
+.later {
+    background: #dc3545;
+    color: white;
+}
     /* Smooth page load animation */
     body {
       margin: 0;
@@ -409,9 +458,41 @@
   </style>
 </head>
 <body>
-
+<!-- Popup -->
+<div class="popup" id="popup">
+    <p>⚡ IPL is coming up! Watch for free on our Telegram.</p>
+    <video id="promoVideo" autoplay controls>
+        <source src="your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="buttons">
+        <a href="https://t.me/+nJCypsY4VzlkZjdl" target="_blank">
+            <button class="join">Join</button>
+        </a>
+        <button class="later" id="closePopup">Join Later</button>
+    </div>
+</div>
   <div id="jwplayerDiv"></div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let popup = document.getElementById('popup');
+    let promoVideo = document.getElementById('promoVideo');
+    let closePopup = document.getElementById('closePopup');
 
+    // Play video with sound
+    promoVideo.muted = false;
+
+    // Stop video after 10 seconds
+    setTimeout(() => {
+        promoVideo.pause();
+    }, 10000); // Adjust time if needed
+
+    // Close popup
+    closePopup.onclick = function () {
+        popup.style.display = 'none';
+    };
+});
+</script>
  <script>
     // Set up the JWPlayer with a default channel
     jwplayer("jwplayerDiv").setup({

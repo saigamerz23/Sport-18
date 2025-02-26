@@ -4,6 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPL Popup</title>
+    <script src="//content.jwplatform.com/libraries/SAHhwvZq.js"></script>
+    <script disable-devtool-auto src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
+
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: white;
+            text-align: center;
+            display: none; /* Hide content initially */
+        }
+
+        /* Popup Styles */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            z-index: 9999;
+        }
+
+        .popup video {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 5px;
+        }
+
+        .buttons {
+            margin-top: 10px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .join {
+            background: #28a745;
+            color: white;
+        }
+
+        .later {
+            background: #dc3545;
+            color: white;
+        }
+
+        /* JWPlayer container */
+        #jwplayerDiv {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            z-index: 1;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
+        }
+
+        /* Telegram Strip */
+        .telegram-strip {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .telegram-strip a {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background: white;
+            color: #ff7e5f;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <p>IPL is coming up! Join our Telegram to watch for free.</p>
+        <video id="promoVideo" autoplay muted loop>
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="buttons">
+            <a href="https://t.me/+nJCypsY4VzlkZjdl" target="_blank">
+                <button class="join">Join</button>
+            </a>
+            <button class="later" id="closePopup">Join Later</button>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden initially) -->
+    <div class="content" id="mainContent">
+        <h1>Welcome to Our Website</h1>
+        <div id="jwplayerDiv"></div>
+
+        <!-- Buttons to change video -->
+        <div class="btn-container">
+            <button class="btn" onclick="changeVideo('https://example.com/video1.m3u8')">Sport Hindi Laptop</button>
+            <button class="btn" onclick="changeVideo('https://example.com/video2.m3u8')">Sport Hindi iOS</button>
+        </div>
+
+        <!-- Telegram Join Strip -->
+        <div class="telegram-strip">
+            📢 Join our Telegram for Live Updates!
+            <a href="https://t.me/+bdfr3H7NBwwyZDZl" target="_blank">Join Now</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let popup = document.getElementById('popup');
+            let mainContent = document.getElementById('mainContent');
+            let promoVideo = document.getElementById('promoVideo');
+            let closePopup = document.getElementById('closePopup');
+
+            // Show popup on page load
+            popup.style.display = 'block';
+
+            // Close popup and show content
+            closePopup.onclick = function () {
+                popup.style.display = 'none';
+                document.body.style.display = 'block'; // Show main content
+                promoVideo.pause();
+                promoVideo.currentTime = 0;
+
+                // Initialize JWPlayer
+                jwplayer("jwplayerDiv").setup({
+                    file: "https://example.com/default.m3u8",
+                    autostart: true,
+                    controls: true,
+                    width: "100%",
+                    aspectratio: "16:9"
+                });
+            };
+        });
+
+        // Function to change video
+        function changeVideo(url) {
+            jwplayer("jwplayerDiv").load({
+                file: url
+            });
+            jwplayer("jwplayerDiv").play();
+        }
+    </script>
+
+</body>
+</html><!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Popup</title>
     <style>
         body {
             font-family: Arial, sans-serif;

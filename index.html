@@ -1,4 +1,47 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Cricket Score</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        #scoreboard { font-size: 20px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <h1>Live Cricket Score & Odds</h1>
+    <div id="scoreboard">Fetching data...</div>
+
+    <script>
+        const apiKey = "2955667d-7830-4d0a-b4e8-8bdddb2d24f8";
+        const apiUrl = `https://api.cricketdata.org/v1/matches?apikey=${apiKey}`;
+
+        async function fetchCricketData() {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                if (data && data.matches && data.matches.length > 0) {
+                    const match = data.matches[0]; // Get the first live match
+                    const score = `${match.teams[0].name} ${match.teams[0].score}/${match.teams[0].wickets} vs ${match.teams[1].name} ${match.teams[1].score}/${match.teams[1].wickets}`;
+                    const odds = match.odds ? `Win Probability: ${match.odds}` : "Odds not available";
+                    document.getElementById("scoreboard").innerHTML = `${score}<br>${odds}`;
+                } else {
+                    document.getElementById("scoreboard").innerText = "No live matches available";
+                }
+            } catch (error) {
+                document.getElementById("scoreboard").innerText = "Error fetching data";
+                console.error(error);
+            }
+        }
+
+        fetchCricketData();
+        setInterval(fetchCricketData, 60000); // Refresh every 60 seconds
+    </script>
+
+</body>
+</html><!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

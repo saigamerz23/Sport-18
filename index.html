@@ -422,39 +422,13 @@ document.addEventListener("DOMContentLoaded", function () {
   </style>
 </head>
 <body>
-<!-- Popup -->
-<div class="popup" id="popup">
-    <p>⚡ IPL is coming up! Watch for free on our Telegram.</p>
-    <video id="promoVideo" autoplay controls>
-        <source src="2025(480P).mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="buttons">
-        <a href="https://t.me/+nJCypsY4VzlkZjdl" target="_blank">
-            <button class="join">Join</button>
-        </a>
-        <button class="later" id="closePopup">Join Later</button>
-    </div>
 </div>
   <div id="jwplayerDiv"></div>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    let popup = document.getElementById('popup');
-    let promoVideo = document.getElementById('promoVideo');
-    let closePopup = document.getElementById('closePopup');
 
-    // Play video with sound
-    promoVideo.muted = false;
-    // Close popup
-    closePopup.onclick = function () {
-        popup.style.display = 'none';
-    };
-});
-</script>
  <script>
     // Set up the JWPlayer with a default channel
     jwplayer("jwplayerDiv").setup({
-      file: "https://jcevents.jiocinema.com/bpk-tv/JC_Sports18_1HD/JCHLS/hdntl=exp=1740642673~acl=%2f*~id=3f74cbd9e396350d08288a1ec2051858~data=hdntl~hmac=d18d36b982203b27673e1ca12f04b179d737e624d656809cf350a80caaf0472e/index.m3u8",
+      file: "https://jcevents.jiocinema.com/bpk-tv/JC_Sports18_1HD/JCHLS/hdntl=exp=1740719724~acl=%2f*~id=734d91efa9480a411197166084224a1d~data=hdntl~hmac=514cfe287ba3c182d52cc92e8c87caf9fd17473d5339ed4879fe41fa3316166e/index.m3u8",
       autostart: true,
       controls: true,
       width: "100%",

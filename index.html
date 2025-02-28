@@ -450,7 +450,21 @@ document.addEventListener("DOMContentLoaded", function () {
    <!-- <button class="btn" onclick="changeVideo('https://jcevents.jiocinema.com/bpk-tv/JC_Sports18_1HD/JCHLS/hdntl=exp=1739428832~acl=%2f*~id=1acd007748ec1f80292d0a7d5e128f5f~data=hdntl~hmac=697723bf7c0cdc7361bcdc9d218bf7d0d59d2c388cca7a9cacc98f1328668d0b/index.m3u8')">Play Sport 18 Hindi</button>-->
     <button class="btn" onclick="changeVideo('https://jcevents.jiocinema.com/bpk-tv/JC_Sports18_1HD/JCHLS/hdntl=exp=1740319493~acl=%2f*~id=aaf549ec51984c86b32dd7de3e1334c7~data=hdntl~hmac=fce24e2abfc7ecbba03eff4715efb9e7149b87a88675beb02404b86592a63708/index.m3u8')">Play Sport Hindi for IOS</button>
   </div>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = window.location.href;  // Sets the correct URL dynamically
+        this.page.identifier = window.location.pathname; // Unique per page
+    };
 
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://stardust108-github-io.disqus.com/embed.js'; // Corrected URL
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   <!-- Telegram Join Strip -->
   <div class="telegram-strip">
     📢 Join our Telegram for Live Updates!

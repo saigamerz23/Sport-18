@@ -1,4 +1,30 @@
-<!--DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Comments</title>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+</head>
+<body>
+    <h2>Live Comment System</h2>
+    <input type="text" id="username" placeholder="Your Name">
+    <input type="text" id="comment" placeholder="Write a comment...">
+    <button onclick="postComment()">Post</button>
+
+    <div id="comments"></div>
+
+    <script>
+        // Firebase Config
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyCzBcx17dkA9s4ngLW-XTzeZdRkk2Juk",
+            authDomain: "comment-6e8a8.firebaseapp.com",
+            databaseURL: "https://comment-6e8a8-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "comment-6e8a8",
+            storageBucket: "comment-6e8a8.firebasestorage.app",
+            messagingSenderId: "157498707354",
+            appId: "1:157498707354:web:68379a3<!--DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
